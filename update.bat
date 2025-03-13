@@ -12,5 +12,6 @@ IF EXIST .git (
 echo Updating
 git fetch
 git reset --hard origin/master
-git checkout master
+git checkout -f master
+git checkout master 
 git pull
