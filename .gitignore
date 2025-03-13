@@ -1,0 +1,12 @@
+*
+!.gitignore
+!minecraft
+!minecraft/kubejs
+!minecraft/kubejs/client_scripts
+!minecraft/kubejs/server_scripts
+!minecraft/kubejs/startup_scripts
+!minecraft/kubejs/client_scripts/*.js
+!minecraft/kubejs/server_scripts/*.js
+!minecraft/kubejs/startup_scripts/*.js
+!minecraft/mods
+!minecraft/mods/*
