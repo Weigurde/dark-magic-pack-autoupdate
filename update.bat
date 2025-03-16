@@ -14,27 +14,11 @@ IF NOT EXIST updategit.bat (
     echo Downloading updategit.bat...
     powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/JurkoDev/dark-magic-pack-autoupdate/refs/heads/master/updategit.bat' -OutFile 'updategit.bat'"
 )
-echo Checking if Python is installed...
-python --version >nul 2>&1
-IF ERRORLEVEL 1 (
-    IF EXIST PortablePython (
-        echo Portable Python is already extracted.
-    ) ELSE (
-        IF EXIST PortablePython.zip (
-            echo Portable Python zip found. Skipping download.
-        ) ELSE (
-            echo Python is not installed. Downloading portable Python...
-            powershell -Command "Invoke-WebRequest -Uri 'https://www.python.org/ftp/python/3.9.7/python-3.9.7-embed-amd64.zip' -OutFile 'PortablePython.zip'"
-        )
-        echo Extracting Python...
-        powershell -Command "Expand-Archive -Path 'PortablePython.zip' -DestinationPath 'PortablePython'"
-    )
-    REM Run the Python GUI script using portable Python
-    "%cd%\PortablePython\pip" install tkinter
-    "%cd%\PortablePython\python" gui.py
-) ELSE (
-    echo Python is installed.
-    REM Run the Python GUI script using system Python
-    pip install tkinter
-    python gui.py
+echo Checking if gui.exe is present...
+IF NOT EXIST gui.exe (
+    echo Downloading gui.exe...
+    powershell -Command "Invoke-WebRequest -Uri 'https://github.com/JurkoDev/dark-magic-pack-autoupdate/raw/refs/heads/master/gui.exe' -OutFile 'gui.exe'"
 )
+
+echo Executing gui.exe...
+start gui.exe
