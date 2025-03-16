@@ -1,3 +1,4 @@
+import time
 import tkinter as tk
 from tkinter import ttk
 import subprocess
@@ -35,6 +36,10 @@ class UpdateApp:
         process.wait()
         self.progress.stop()
         self.final_text.config(text="Update Complete! Relaunch the Game")
+        self.root.update()
+        time.sleep(1)
+        self.root.update()
+        self.root.quit()
 
 if __name__ == "__main__":
     root = tk.Tk()
