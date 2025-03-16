@@ -15,7 +15,7 @@ IF ERRORLEVEL 1 (
             powershell -Command "Invoke-WebRequest -Uri 'https://github.com/git-for-windows/git/releases/download/v2.48.1.windows.1/PortableGit-2.48.1-64-bit.7z.exe' -OutFile 'PortableGit48.exe'"
         )
         echo Extracting Git...
-        powershell -Command "Start-Process 'PortableGit48.exe' -ArgumentList '-o%cd%\PortableGit', '-y', '-gm2' -NoNewWindow -Wait"
+        powershell -Command "Start-Process 'PortableGit48.exe' -ArgumentList '-o%cd%\PortableGit', '-y', '-gm2' -NoNewWindow -Wait'"
         @REM set PATH="%cd%\PortableGit\cmd";%PATH%
     )
 
