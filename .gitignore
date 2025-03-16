@@ -2,7 +2,7 @@
 !.gitignore
 !update.bat
 !updategit.bat
-!gui.py
+!gui.exe
 !minecraft
 !minecraft/kubejs
 !minecraft/kubejs/client_scripts
