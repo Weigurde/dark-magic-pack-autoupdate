@@ -12,7 +12,11 @@ class UpdateApp:
         self.progress.pack(pady=20)
         
         self.start_button = tk.Button(root, text="Start Update", command=self.start_update)
+        self.start_update()
         self.start_button.pack(pady=10)
+        
+        self.final_text = tk.Label(root, text="")
+        self.final_text.pack(pady=10)
         
         self.output_text = tk.Text(root, height=10, width=50)
         self.output_text.pack(pady=10)
@@ -30,7 +34,7 @@ class UpdateApp:
         process.stdout.close()
         process.wait()
         self.progress.stop()
-        self.start_button.config(state=tk.NORMAL)
+        self.final_text.config(text="Update Complete! Relaunch the Game")
 
 if __name__ == "__main__":
     root = tk.Tk()
