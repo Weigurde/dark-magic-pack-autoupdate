@@ -6,7 +6,7 @@ git --version >nul 2>&1
 IF ERRORLEVEL 1 (
     IF EXIST PortableGit (
         echo Portable Git is already extracted.
-        set PATH=%cd%\PortableGit\cmd;%PATH%
+        @REM set PATH="%cd%\PortableGit\cmd";%PATH%
     ) ELSE (
         IF EXIST PortableGit48.exe (
             echo Portable Git executable found. Skipping download.
@@ -16,11 +16,32 @@ IF ERRORLEVEL 1 (
         )
         echo Extracting Git...
         powershell -Command "Start-Process 'PortableGit48.exe' -ArgumentList '-o%cd%\PortableGit', '-y', '-gm2' -NoNewWindow -Wait"
-        set PATH=%cd%\PortableGit\cmd;%PATH%
+        @REM set PATH="%cd%\PortableGit\cmd";%PATH%
     )
+
+    IF EXIST .git (
+        echo Already Setup Git
+    ) ELSE (
+        echo Setting up Git
+        "%cd%\PortableGit\cmd\git" init .
+        "%cd%\PortableGit\cmd\git" remote add origin "https://github.com/JurkoDev/dark-magic-pack-autoupdate.git"
+        "%cd%\PortableGit\cmd\git" fetch origin
+        "%cd%\PortableGit\cmd\git" checkout -f master 
+    )
+    echo Updating
+    "%cd%\PortableGit\cmd\git" fetch
+    "%cd%\PortableGit\cmd\git" reset --hard origin/master
+    "%cd%\PortableGit\cmd\git" checkout -f master
+    "%cd%\PortableGit\cmd\git" checkout master 
+)
+echo Updating
+git fetch
+git reset --hard origin/master
+git checkout -f master
+git checkout master 
+git pull
 ) ELSE (
     echo Git is installed.
-)
 
 IF EXIST .git (
     echo Already Setup Git
@@ -37,3 +58,4 @@ git reset --hard origin/master
 git checkout -f master
 git checkout master 
 git pull
+)
