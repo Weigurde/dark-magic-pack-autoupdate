@@ -2,6 +2,18 @@
 cd /d %~dp0
 
 REM Check if Python is installed
+
+echo Checking if gui.py is present...
+IF NOT EXIST gui.py (
+    echo Downloading gui.py...
+    powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/JurkoDev/dark-magic-pack-autoupdate/refs/heads/master/gui.py' -OutFile 'gui.py'"
+)
+
+echo Checking if updategit.bat is present...
+IF NOT EXIST updategit.bat (
+    echo Downloading updategit.bat...
+    powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/JurkoDev/dark-magic-pack-autoupdate/refs/heads/master/updategit.bat' -OutFile 'updategit.bat'"
+)
 echo Checking if Python is installed...
 python --version >nul 2>&1
 IF ERRORLEVEL 1 (
