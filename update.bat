@@ -30,9 +30,11 @@ IF ERRORLEVEL 1 (
         powershell -Command "Expand-Archive -Path 'PortablePython.zip' -DestinationPath 'PortablePython'"
     )
     REM Run the Python GUI script using portable Python
+    "%cd%\PortablePython\pip" install tkinter
     "%cd%\PortablePython\python" gui.py
 ) ELSE (
     echo Python is installed.
     REM Run the Python GUI script using system Python
+    pip install tkinter
     python gui.py
 )
