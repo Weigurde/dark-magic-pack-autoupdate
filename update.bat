@@ -53,3 +53,6 @@ git checkout -f master
 git checkout master 
 git pull
 )
+
+
+echo. > update.lock
