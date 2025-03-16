@@ -1,5 +1,7 @@
 *
 !.gitignore
+!update.bat
+!updategit.bat
 !minecraft
 !minecraft/kubejs
 !minecraft/kubejs/client_scripts
