@@ -33,13 +33,7 @@ IF ERRORLEVEL 1 (
     "%cd%\PortableGit\cmd\git" reset --hard origin/master
     "%cd%\PortableGit\cmd\git" checkout -f master
     "%cd%\PortableGit\cmd\git" checkout master 
-)
-echo Updating
-git fetch
-git reset --hard origin/master
-git checkout -f master
-git checkout master 
-git pull
+    "%cd%\PortableGit\cmd\git" pull
 ) ELSE (
     echo Git is installed.
 
