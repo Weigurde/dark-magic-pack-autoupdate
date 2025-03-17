@@ -25,6 +25,7 @@ IF ERRORLEVEL 1 (
         echo Setting up Git
         "%cd%\PortableGit\cmd\git" init .
         "%cd%\PortableGit\cmd\git" remote add origin "https://github.com/JurkoDev/dark-magic-pack-autoupdate.git"
+        echo fetching origin
         "%cd%\PortableGit\cmd\git" fetch origin
         "%cd%\PortableGit\cmd\git" checkout -f master 
     )
@@ -43,6 +44,7 @@ IF EXIST .git (
     echo Setting up Git
     git init .
     git remote add origin "https://github.com/JurkoDev/dark-magic-pack-autoupdate.git"
+    echo fetching origin
     git fetch origin
     git checkout -f master 
 )
