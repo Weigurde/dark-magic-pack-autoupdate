@@ -26,11 +26,11 @@ IF ERRORLEVEL 1 (
         "%cd%\PortableGit\cmd\git" init .
         "%cd%\PortableGit\cmd\git" remote add origin "https://github.com/JurkoDev/dark-magic-pack-autoupdate.git"
         echo fetching origin
-        @REM "%cd%\PortableGit\cmd\git" fetch origin
+        "%cd%\PortableGit\cmd\git" fetch origin -v
         "%cd%\PortableGit\cmd\git" checkout -f master 
     )
     echo Updating
-    @REM "%cd%\PortableGit\cmd\git" fetch
+    "%cd%\PortableGit\cmd\git" fetch -v
     "%cd%\PortableGit\cmd\git" reset --hard origin/master
     "%cd%\PortableGit\cmd\git" checkout -f master
     "%cd%\PortableGit\cmd\git" checkout master 
@@ -45,11 +45,11 @@ IF EXIST .git (
     git init .
     git remote add origin "https://github.com/JurkoDev/dark-magic-pack-autoupdate.git"
     echo fetching origin
-    @REM git fetch origin
+    git fetch origin
     git checkout -f master 
 )
 echo Updating
-@REM git fetch
+git fetch
 git reset --hard origin/master
 git checkout -f master
 git checkout master 
