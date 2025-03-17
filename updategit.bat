@@ -45,11 +45,11 @@ IF EXIST .git (
     git init .
     git remote add origin "https://github.com/JurkoDev/dark-magic-pack-autoupdate.git"
     echo fetching origin
-    git fetch origin
+    @REM git fetch origin
     git checkout -f master 
 )
 echo Updating
-git fetch
+@REM git fetch
 git reset --hard origin/master
 git checkout -f master
 git checkout master 
